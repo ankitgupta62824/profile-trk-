@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit Gupta - Social Links</title>
+    <style>
+        /* Basic Styling for the page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Main Container */
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Profile Section */
+        .profile {
+            margin-bottom: 30px;
+        }
+        .profile h1 {
+            margin: 10px 0 5px;
+            color: #333;
+            font-size: 24px;
+        }
+        .profile p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Grid Layout for Icons */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Individual Social Card */
+        .social-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .social-card span {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile">
+            <!-- Apna Naam yahan likhein -->
+            <h1>Ankit Gupta</h1>
+            <p>@ankitgupta62824</p>
+        </div>
+        
+        <!-- Yahan Icons load honge -->
+        <div class="social-grid" id="socialContainer"></div>
+    </div>
+
+    <script>
+        // Apka Username
+        const username = "ankitgupta62824";
+
+        // Social Media Links Data
+        // Har platform ke liye link format aur icon URL define kiya gaya hai
+        const socialPlatforms = [
+            {
+                name: "Instagram",
+                url: `https://instagram.com/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/174/174855.png" // Instagram Icon
+            },
+            {
+                name: "YouTube",
+                // YouTube channel URL format (Agar channel ID alag hai toh yah change karna padega)
+                url: `https://youtube.com/@${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/174/174883.png" // YouTube Icon
+            },
+            {
+                name: "Facebook",
+                url: `https://facebook.com/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/174/174848.png" // FB Icon
+            },
+            {
+                name: "Telegram",
+                url: `https://t.me/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/2111/2111646.png" // Telegram Icon
+            },
+            {
+                name: "X (Twitter)",
+                url: `https://x.com/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/5968/5968830.png" // X Icon
+            },
+            {
+                name: "LinkedIn",
+                url: `https://linkedin.com/in/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png" // LinkedIn Icon
+            },
+            {
+                name: "Snapchat",
+                url: `https://snapchat.com/add/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/2111/2111945.png" // Snapchat Icon
+            },
+            {
+                name: "Pinterest",
+                url: `https://pinterest.com/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/174/174863.png" // Pinterest Icon
+            },
+            {
+                name: "Threads",
+                url: `https://threads.net/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/2111/2111948.png" // Threads Icon
+            },
+            {
+                name: "ShareChat",
+                url: `https://sharechat.com/profile/${username}`,
+                icon: "https://cdn-icons-png.flaticon.com/512/2111/2111947.png" // ShareChat Placeholder
+            }
+        ];
+
+        // JavaScript se dynamically icons create karna
+        const container = document.getElementById('socialContainer');
+
+        socialPlatforms.forEach(platform => {
+            // Create Anchor Tag
+            const link = document.createElement('a');
+            link.href = platform.url;
+            link.target = "_blank"; // New tab mein open karega
+            link.rel = "noopener noreferrer";
+            link.classList.add('social-card');
+
+            // Create Image Tag
+            const img = document.createElement('img');
+            img.src = platform.icon;
+            img.alt = platform.name;
+
+            // Create Name Span
+            const nameSpan = document.createElement('span');
+            nameSpan.innerText = platform.name;
+
+            // Append elements
+            link.appendChild(img);
+            link.appendChild(nameSpan);
+            container.appendChild(link);
+        });
+    </script>
+
+</body>
+</html>
